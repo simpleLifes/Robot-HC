@@ -1,0 +1,71 @@
+*** Keywords ***
+登录
+    ${cookie_value}    login_with_yzm
+    open browser    http://tinneradx.ad.cmvideo.cn:18088/login    chrome		#headlesschrome   静默执行
+    add cookie    PHPSESSID    ${cookie_value}
+    go to    http://tinneradx.ad.cmvideo.cn:18088/gnome_admin/login/main
+    Set Window Size    1400    800
+    
+等待时间
+    sleep   5
+
+媒体资源管理
+    click element         //*[@id="menu_814"]/span
+    Wait Until Element Contains    xpath=//*[@id="menu_category"]/div/div[1]/p    资源管理    20    #等待
+
+投放管理
+    click element    xpath=//*[@id="menu_736"]/a    #点击投放管理
+    Wait Until Element Contains    xpath=//*[@id="page_content"]/div[2]    投放管理    20    #等待
+
+第三方平台管理
+    Click Element    Xpath=/html/body/div[3]/div[1]/div/ul/li[5]/a
+    sleep    3
+
+数据报表
+    click element    xpath=//*[@id="menu_713"]    #点击数据报表
+    Wait Until Element Contains    xpath=//*[@id="main_right"]    高级    20    #等待
+
+库存管理
+    click element    id=menu_746
+
+移动广告位管理
+         click element         //*[@id="menu_category"]/div/div[1]/ul/li[6]/a/img
+
+魔百盒广告位管理
+         click element         //*[@id="menu_category"]/div/div[1]/ul/li[4]/a/img
+         
+PC广告位管理
+         click element         //*[@id="menu_category"]/div/div[1]/ul/li[2]/a/img
+
+广告主管理
+         click element      xpath=//*[@id="page_nav"]/ul/li[6]/a
+         sleep      10
+
+订单管理
+         click element      xpath=//*[@id="page_nav"]/ul/li[5]/a
+         sleep      10    
+
+创意管理
+         click element      xpath=//*[@id="page_nav"]/ul/li[2]/a
+         sleep      10  
+         
+物料管理
+         click element      xpath=//*[@id="page_nav"]/ul/li[7]/a
+         sleep      10               
+        
+库存管理删除
+		click element    xpath=//*[@id="data_list"]/tr[1]/td[13]/a[text()='删除']
+		sleep    2
+		click element    xpath=/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[1]
+        
+下单
+	click element	 xpath=//*[@id="data_list"]/tr[1]/td[13]/a[text()='下单']
+    
+弹窗确认
+         Wait Until Element Is Visible         xpath=/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[1]         5
+         click button         xpath=/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button[1]
+         Wait Until Element Is Visible         xpath=/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button         5
+         click button         xpath=/html/body/div[1]/div/table/tbody/tr[2]/td[2]/div/table/tbody/tr[3]/td/div/button
+         
+
+
